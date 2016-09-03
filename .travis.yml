@@ -24,6 +24,7 @@ before_install:
   - line_old='../../sites/lab/symfony-rest-beer-edition:/var/www/symfony'
   - line_new='symfony:/var/www/symfony'
   - sed -i "s%$line_old%$line_new%g" docker-compose.yml
+  - cat docker-compose.yml
 
 script:
   - docker-compose up -d

@@ -8,13 +8,7 @@ Docker-symfony gives you everything you need for developing Symfony application.
 
 ## Installation
 
-1. Retrieve git project
-
-    ```bash
-    $ git clone https://github.com/maxpou/docker-symfony
-    ```
-
-2. In the docker-compose file, indicate where's your Symfony project
+1. In the docker-compose file, indicate where's your Symfony project
 
     ```yml
     services:
@@ -23,14 +17,14 @@ Docker-symfony gives you everything you need for developing Symfony application.
                 - path/to/your/symfony-project:/var/www/symfony
     ```
 
-3. Build containers with (with and without detached mode)
+2. Build containers with (with and without detached mode)
 
     ```bash
     $ docker-compose up
     $ docker-compose up -d
     ```
 
-4. Update your host file (add symfony.dev)
+3. Update your host file (add symfony.dev)
 
     ```bash
     # get containers IP address and update host (replace IP according to your configuration)
@@ -41,7 +35,7 @@ Docker-symfony gives you everything you need for developing Symfony application.
 
     **Note:** If it's empty, run `docker inspect $(docker ps -f name=nginx -q) | grep IPAddress` instead.
 
-5. Prepare Symfony app
+4. Prepare Symfony app
     1. Retrieve DB&Redis IP
 
         ```bash
@@ -56,8 +50,10 @@ Docker-symfony gives you everything you need for developing Symfony application.
         ```yml
         # path/to/sfApp/app/config/parameters.yml
         parameters:
-            redis_host: redis
             database_host: mysqldb
+            database_password: root
+            #...
+            redis_host: redis
         ```
 
     3. Composer install & create database
@@ -75,7 +71,7 @@ Docker-symfony gives you everything you need for developing Symfony application.
         $ sf3 doctrine:fixtures:load --no-interaction
         ```
 
-6. Enjoy :-)
+5. Enjoy :-)
 
 ## Usage
 
